@@ -3,6 +3,26 @@ import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
 
+class MappingTransformer(BaseEstimator, TransformerMixin):
+
+  def __init__(self, mapping_column, mapping_dict:dict):  
+    self.mapping_dict = mapping_dict
+    self.mapping_column = mapping_column  #column to focus on
+
+  def fit(self, X, y = None):
+    print("Warning: MappingTransformer.fit does nothing.")
+    return X
+
+  def transform(self, X):
+    assert isinstance(X, pd.core.frame.DataFrame), f'MappingTransformer.transform expected Dataframe but got {type(X)} instead.'
+    assert self.mapping_column in X.columns.to_list(), f'MappingTransformer.transform unknown column {self.mapping_column}'
+    X_ = X.copy()
+    X_[self.mapping_column].replace(self.mapping_dict, inplace=True)
+    return X_
+
+  def fit_transform(self, X, y = None):
+    result = self.transform(X)
+    return result
 
 class OHETransformer(BaseEstimator, TransformerMixin):
   def __init__(self, target_column, dummy_na=False, drop_first=True):  
