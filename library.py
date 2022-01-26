@@ -156,4 +156,20 @@ class PearsonTransformer(BaseEstimator, TransformerMixin):
     result = self.transform(X)
     return result
   
-  
+class MinMaxTransformer(BaseEstimator, TransformerMixin):
+  def __init__(self):
+    pass
+  #fill in rest below
+  def fit(self, X, y = None):
+    print("Warning: MinMaxTransformer.fit does nothing.")
+    return X
+
+  def transform(self, X):
+    X_ = X.copy()
+    for i in X_:
+        X_[i] = (X_[i] - X_[i].min())/(X_[i].max() - X_[i].min())
+    return X_
+
+  def fit_transform(self, X, y = None):
+    result = self.transform(X)
+    return result
