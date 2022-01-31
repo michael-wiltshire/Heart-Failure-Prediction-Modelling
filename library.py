@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
+sklearn.impute import KNNImputer
 
 class MappingTransformer(BaseEstimator, TransformerMixin):
 
@@ -168,6 +169,25 @@ class MinMaxTransformer(BaseEstimator, TransformerMixin):
     X_ = X.copy()
     for i in X_:
         X_[i] = (X_[i] - X_[i].min())/(X_[i].max() - X_[i].min())
+    return X_
+
+  def fit_transform(self, X, y = None):
+    result = self.transform(X)
+    return result
+  
+class KNNTransformer(BaseEstimator, TransformerMixin):
+  def __init__(self,n_neighbors=5, weights="uniform", add_indicator=False):
+    self.n_neighbors = n_neighbors
+    self.weights=weights 
+    self.add_indicator=add_indicator
+
+  #your code
+  def transform(self, X):
+    X_ = X.copy()
+    imputer = KNNImputer(n_neighbors = self.n_neighbors, weights = self.weights, add_indicator = self.add_indicator)  #do not add extra column for NaN
+    imputed_data = imputer.fit_transform(X_)
+    X_ = pd.DataFrame(imputed_data,columns = X_.columns)
+    
     return X_
 
   def fit_transform(self, X, y = None):
