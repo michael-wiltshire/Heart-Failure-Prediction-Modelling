@@ -167,12 +167,8 @@ class MinMaxTransformer(BaseEstimator, TransformerMixin):
 
   def transform(self, X):
     X_ = X.copy()
-    for i in X_.columns:
-      mi = X_[i].min()
-      mx = X_[i].max()
-      denom = mx-mi
-      X_[i] -= mi
-      X_[i] /= denom
+    for i in X_:
+        X_[i] = (X_[i] - X_[i].min())/(X_[i].max() - X_[i].min())
     return X_
 
   def fit_transform(self, X, y = None):
