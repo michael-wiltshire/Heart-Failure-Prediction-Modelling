@@ -33,7 +33,7 @@ class OHETransformer(BaseEstimator, TransformerMixin):
   
   #fill in the rest below
   def fit(self, X, y = None):
-    print("Warning: MappingTransformer.fit does nothing.")
+    print("Warning: OHETransformer.fit does nothing.")
     return X
 
   def transform(self, X):
@@ -59,7 +59,7 @@ class DropColumnsTransformer(BaseEstimator, TransformerMixin):
     self.action = action
 
   def fit(self, X, y = None):
-    print("Warning: MappingTransformer.fit does nothing.")
+    print("Warning: DropColumnsTransformer.fit does nothing.")
     return X
 
   def transform(self, X):
@@ -131,6 +131,10 @@ class PearsonTransformer(BaseEstimator, TransformerMixin):
     self.threshold = threshold
 
   #define methods below
+  def fit(self, X, y = None):
+    print("Warning: PearsonTransformer.fit does nothing.")
+    return X
+  
   def transform(self, X):
     X_ = X
     df_corr = X
@@ -180,6 +184,10 @@ class KNNTransformer(BaseEstimator, TransformerMixin):
     self.n_neighbors = n_neighbors
     self.weights=weights 
     self.add_indicator=add_indicator
+    
+  def fit(self, X, y = None):
+    print("Warning: KNNTransformer.fit does nothing.")
+    return X
 
   #your code
   def transform(self, X):
