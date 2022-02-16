@@ -261,14 +261,12 @@ def titanic_setup(titanic_table, transformer=titanic_transformer, rs=88, ts=.2):
     x_trained_numpy, y_train_numpy, x_test_numpy, y_test_numpy = dataset_setup(titanic_table.drop(columns='Survived'),
                                                                            titanic_table['Survived'].to_list(),
                                                                            titanic_transformer, rs, ts)
-    return x_trained_numpy, y_train_numpy, x_test_numpy, y_test_numpy
+    t = x_trained_numpy, y_train_numpy, x_test_numpy, y_test_numpy
+    return t
   
 def customer_setup(customer_table, transformer=customer_transformer, rs=107, ts=.2):
     x_trained_numpy, y_train_numpy, x_test_numpy, y_test_numpy = dataset_setup(customer_table.drop(columns='Rating'),
                                                                            customer_table['Rating'].to_list(),
                                                                            customer_transformer,rs, ts)
-    return x_trained_numpy, y_train_numpy, x_test_numpy, y_test_numpy
-
-
-
-
+    t = x_trained_numpy, y_train_numpy, x_test_numpy, y_test_numpy
+    return t
