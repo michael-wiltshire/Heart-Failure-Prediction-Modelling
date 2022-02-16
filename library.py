@@ -262,8 +262,9 @@ def customer_setup(customer_table, transformer = customer_transformer, rs=107, t
 def dataset_setup(feature_table, labels, the_transformer, rs=1234, ts=.2):
   X_train, X_test, y_train, y_test = train_test_split(feature_table, labels, test_size=ts, shuffle=True,
                                                     random_state=rs, stratify=labels)
-  X_test_transformed = titanic_transformer.fit_transform(X_test)
   X_train_transformed = titanic_transformer.fit_transform(X_train)
+  X_test_transformed = titanic_transformer.fit_transform(X_test)
+  
   
   x_trained_numpy = X_train_transformed.to_numpy()
   x_test_numpy = X_test_transformed.to_numpy()
