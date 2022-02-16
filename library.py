@@ -247,7 +247,7 @@ def titanic_setup(titanic_table, transformer=titanic_transformer, rs=88, ts=.2):
   titanic_features = titanic_table.drop(columns='Survived')
   labels = titanic_table['Survived'].to_list()
 
-  xtr,ytr,xt,yt = dataset_setup(titanic_features, labels, transformer,rs, ts)
+  xtr,ytr,xt,yt = dataset_setup(titanic_features, labels, titanic_transformer,rs, ts)
 
   return xtr,ytr,xt,yt
 
@@ -255,7 +255,7 @@ def customer_setup(customer_table, transformer = customer_transformer, rs=107, t
   customer_features = customer_table.drop(columns='Rating')
   labels = customer_table['Rating'].to_list()
 
-  xtr,ytr,xt,yt = dataset_setup(customer_features, labels, transformer,rs, ts)
+  xtr,ytr,xt,yt = dataset_setup(customer_features, labels, customer_transformer,rs, ts)
 
   return xtr,ytr,xt,yt
 
