@@ -275,10 +275,10 @@ def halving_search(model, grid, x_train, y_train, factor=3, scoring='roc_auc'):
   #your code below
   halving_cv = HalvingGridSearchCV(
     model, grid,  #our model and the parameter combos we want to try
-    scoring="roc_auc",  #could alternatively choose f1, accuracy or others
+    scoring,  #could alternatively choose f1, accuracy or others
     n_jobs=-1,
     min_resources="exhaust",
-    factor=2,  #a typical place to start so triple samples and take top 3rd of combos on each iteration
+    factor,  #a typical place to start so triple samples and take top 3rd of combos on each iteration
     cv=5, random_state=1234,
     refit=True  #remembers the best combo and gives us back that model already trained and ready for testing
   )
