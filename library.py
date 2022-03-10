@@ -208,7 +208,7 @@ class KNNTransformer(BaseEstimator, TransformerMixin):
   
 def find_random_state(df, labels, n=200):
   var = []  #collect test_error/train_error where error based on F1 score
-
+  model = LogisticRegressionCV(random_state=1, max_iter=5000)
   #2 minutes
   for i in range(1, n):
       train_X, test_X, train_y, test_y = train_test_split(df, labels, test_size=0.2, shuffle=True,
