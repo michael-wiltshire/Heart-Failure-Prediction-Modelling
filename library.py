@@ -226,6 +226,19 @@ def find_random_state(df, labels, n=200):
   idx = np.array(abs(var - rs_value)).argmin()  #find the index of the smallest value
   return idx
 
+heart_transformer = Pipeline(steps=[
+    ('gender', MappingTransformer('Sex', {'M': 0, 'F': 1})),
+    ('exercise', MappingTransformer('ExerciseAngina', {'N': 0, 'Y': 1})),
+    ('ohe', OHETransformer('ChestPainType')),
+    ('drop_restingecg', DropColumnsTransformer(['RestingECG'], 'drop')),
+    ('drop_st_slope', DropColumnsTransformer(['ST_Slope'], 'drop')),
+    ('bp', TukeyTransformer('RestingBP', 'outer')),
+    ('bmi', TukeyTransformer('Cholesterol', 'outer')),
+    ('hr', TukeyTransformer('MaxHR', 'outer')),
+    ('scale', MinMaxTransformer()), 
+    ('imputer', KNNTransformer())
+    ], verbose=True)
+
 titanic_transformer = Pipeline(steps=[
     ('drop', DropColumnsTransformer(['Age', 'Gender', 'Class', 'Joined', 'Married',  'Fare'], 'keep')),
     ('gender', MappingTransformer('Gender', {'Male': 0, 'Female': 1})),
