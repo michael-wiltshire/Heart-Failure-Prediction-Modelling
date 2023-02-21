@@ -18,17 +18,28 @@ matplotlib and seaborn for data visualization.
 The program consists of the following files:
 
 predict_heart_failure.py: the main script for running the heart failure prediction program.
+
 Library.py: a Python module containing utility functions used in the heart failure prediction program.
+
 Ann_model: a trained artificial neural network model for heart failure prediction.
+
 Knn_model.joblib: a trained k-nearest neighbors model for heart failure prediction.
+
 Logreg_model.joblib: a trained logistic regression model for heart failure prediction.
+
 Xgb_model.joblib: a trained XGBoost model for heart failure prediction.
+
 Ann_thresholds.csv: a file containing threshold values used in the artificial neural network model.
+
 Knn_thresholds.csv: a file containing threshold values used in the k-nearest neighbors model.
+
 Logreg_thresholds.csv: a file containing threshold values used in the logistic regression model.
+
 Xgb_thresholds.csv: a file containing threshold values used in the XGBoost model.
+
 Heart.csv: the dataset used for heart failure prediction.
 Results
+
 
 After experimenting with several different machine learning algorithms and model architectures, I was able to achieve an accuracy of 0.85 in predicting heart failure using the XGBoost model.
 
