@@ -2,13 +2,13 @@
 
 This is a repository for the heart failure prediction model that I created as part of my data science coursework in university. The program uses machine learning algorithms to predict whether a patient is likely to experience heart failure based on several medical features.
 
-Project Overview
+## Project Overview
 
 The goal of this project was to create a predictive model for heart failure based on medical data. I used a dataset from Kaggle and applied various machine learning algorithms to build a model that could accurately predict whether a patient was likely to experience heart failure based on several medical features.
 
 I chose this project because it allowed me to apply several key data science skills, including data cleaning and preprocessing, feature engineering, model selection and evaluation, and visualization.
 
-Technical Details
+## Technical Details
 
 This project is written in Python and uses several libraries and frameworks, including:
 
@@ -45,10 +45,10 @@ After experimenting with several different machine learning algorithms and model
 
 I also performed feature importance analysis to determine which features were most strongly correlated with heart failure. This analysis revealed that age, serum creatinine levels, and ejection fraction were the most important predictors.
 
-Future Work
+## Future Work
 
 In the future, I plan to further optimize the model performance by using more advanced hyperparameter tuning methods, exploring ensemble learning techniques, and evaluating the model's performance on larger and more diverse datasets.
 
-Conclusion
+## Conclusion
 
 Overall, this project was an excellent opportunity for me to apply my data science skills in a real-world context. By building a predictive model for heart failure, I was able to gain valuable experience in data preprocessing, feature engineering, machine learning algorithms, and model evaluation. I am excited to continue working on this project and exploring new ways to improve the accuracy and performance of the heart failure prediction model.
